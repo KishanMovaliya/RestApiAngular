@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="d-flex justify-content-center">RestApi</h1>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+    </div>
+    <!------------------------ Search Feild ------------------------------------------------------->
+    <input type="text" class="form-control" #myinput [(ngModel)]="searchvalue" (input)="getallValue()"
+      placeholder="Search By Name And Id" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <!----------------------Result Table ------------------------------------------------------------>
+  <table class="table table-bordered" *ngIf="this.results?.length > 0;else emptyData">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{getid}}</th>
+        <td>{{getname}}</td>
+        <td>{{getdescription}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h1>All Result</h1>
+  {{this.getalldata}}
+</div>
+
+<ng-template #emptyData>
+  <div>
+    <h1 class="d-flex justify-content-center">Search the Data And Get Result</h1>
+  </div>
+</ng-template>
